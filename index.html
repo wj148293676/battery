@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+    <meta name="description" content="电池组" />
+    <meta name="keywords" content="电池组" />
+    <title>电池组</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/mui.min.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <style type="text/css">
+        /*#effectModal .modal-body { max-height: 100px; }*/
+    </style>
+</head>
+<body>
+<div class="container-fluid" style="padding: 0;position: relative">
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-xs-8" >
+            <!--顶部三个折线图-->
+            <div id="headerDiv" class="row">
+                <div class="col-lg-5 col-md-5 col-xs-5" style="padding: 0;">
+                    <div class="itemDiv">
+                        <p class="title-p">总电流</p>
+                        <div id="ColumnDiv1"></div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-5 col-xs-5" style="padding: 0;">
+                    <div class="itemDiv">
+                        <p class="title-p">总电压</p>
+                        <div id="ColumnDiv2"></div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-xs-2" style="padding: 0;">
+                    <div class="itemDiv">
+                        <img id="alarm_img" class="img-responsive center-block" src="image/baojingling.png" alt="">
+                        <p class="center-block text-center alarm-p">报警信息</p>
+                        <p class="center-block text-center alarm-p">ALARM INFORMATION</p>
+                    </div>
+                </div>
+                <div id="timerDiv">
+                    <p class="center-block text-center">10s</p>
+                </div>
+            </div>
+            <!--电池组3D图-->
+            <div id="batteryContainer" style="position: relative;">
+                <div id="batteryDiv" class="row">
+                    <div id="cube">
+                        <div class="face" id="face1">
+                            <table id="table" class="table">
+                                <tbody id="formBody">
+                                    <tr class="task">
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                    </tr>
+                                    <tr class="task">
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                    </tr>
+                                    <tr class="task">
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                    </tr>
+                                    <tr class="task">
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                    </tr>
+                                    <tr class="task">
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                    </tr>
+                                    <tr class="task">
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                    </tr>
+                                    <tr class="task">
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                    </tr>
+                                    <tr class="task">
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                    </tr>
+                                    <tr class="task">
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                    </tr>
+                                    <tr class="task">
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                    </tr>
+                                    <tr class="task">
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                        <td><img class="img-responsive" src="image/line1.png" alt=""></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <img id="battery_img" src="image/dianchi.png" alt="">
+            </div>
+        </div>
+        <!--右侧状态-->
+        <div id="rightDiv" class="col-lg-4 col-md-4 col-xs-4">
+            <div class="cardDiv">
+                <p class="center-block text-center card-p">主动均衡模块</p>
+                <div class="row card-line1">
+                    <div class="col-lg-2 col-md-2 col-xs-2">
+                        <span></span>
+                        <div class="mui-switch mui-switch-mini mui-active mui-disabled">
+                            <div class="mui-switch-handle"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-xs-5">
+                        <div class="card-battery">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-xs-6 arrow-img-div">
+                                    <img class="img-responsive arrow-img1 arrow-green" src="image/jiantou.png" alt="">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-xs-6">
+                                    <img class="img-responsive battery-img" src="image/dianchi2.png" alt="">
+                                </div>
+                            </div>
+                            <p class="text-center center-block card-sub-p">充电均衡</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-xs-5">
+                        <div class="card-battery">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-xs-6 arrow-img-div">
+                                    <img class="img-responsive arrow-img2 arrow-green" src="image/hjiantou.png" alt="">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-xs-6">
+                                    <img class="img-responsive battery-img" src="image/dianchi2.png" alt="">
+                                </div>
+                            </div>
+                            <p class="text-center center-block card-sub-p">放电均衡</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row card-line2">
+                    <div class="light-item col-lg-2 col-md-2 col-xs-2">
+                        <img class="img-responsive center-block light-img" src="image/Channel1.png" alt="">
+                        <p class="center-block text-center channel-p">通道1</p>
+                    </div>
+                    <div class="light-item col-lg-2 col-md-2 col-xs-2">
+                        <img class="img-responsive center-block light-img" src="image/Channel1.png" alt="">
+                        <p class="center-block text-center channel-p">通道2</p>
+                    </div>
+                    <div class="light-item col-lg-2 col-md-2 col-xs-2">
+                        <img class="img-responsive center-block light-img" src="image/Channel1.png" alt="">
+                        <p class="center-block text-center channel-p">通道3</p>
+                    </div>
+                    <div class="light-item col-lg-2 col-md-2 col-xs-2">
+                        <img class="img-responsive center-block light-img" src="image/Channel1.png" alt="">
+                        <p class="center-block text-center channel-p">通道4</p>
+                    </div>
+                    <div class="light-item col-lg-2 col-md-2 col-xs-2">
+                        <img class="img-responsive center-block light-img" src="image/Channel1.png" alt="">
+                        <p class="center-block text-center channel-p">通道5</p>
+                    </div>
+                    <div class="light-item col-lg-2 col-md-2 col-xs-2">
+                        <img class="img-responsive center-block light-img" src="image/Channel1.png" alt="">
+                        <p class="center-block text-center channel-p">通道6</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cardDiv">
+                <p class="center-block text-center card-p">主动均衡模块</p>
+                <div class="row card-line1">
+                    <div class="col-lg-2 col-md-2 col-xs-2">
+                        <span></span>
+                        <div class="mui-switch mui-switch-mini mui-active mui-disabled">
+                            <div class="mui-switch-handle"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-xs-5">
+                        <div class="card-battery">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-xs-6 arrow-img-div">
+                                    <img class="img-responsive arrow-img1 arrow-green" src="image/jiantou.png" alt="">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-xs-6">
+                                    <img class="img-responsive battery-img" src="image/dianchi2.png" alt="">
+                                </div>
+                            </div>
+                            <p class="text-center center-block card-sub-p">充电均衡</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-xs-5">
+                        <div class="card-battery">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-xs-6 arrow-img-div">
+                                    <img class="img-responsive arrow-img2 arrow-green" src="image/hjiantou.png" alt="">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-xs-6">
+                                    <img class="img-responsive battery-img" src="image/dianchi2.png" alt="">
+                                </div>
+                            </div>
+                            <p class="text-center center-block card-sub-p">放电均衡</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row card-line2">
+                    <div class="col-lg-2 col-md-2 col-xs-2">
+                        <img class="img-responsive center-block light-img" src="image/Channel1.png" alt="">
+                        <p class="center-block text-center channel-p">通道1</p>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-xs-2">
+                        <img class="img-responsive center-block light-img" src="image/Channel1.png" alt="">
+                        <p class="center-block text-center channel-p">通道2</p>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-xs-2">
+                        <img class="img-responsive center-block light-img" src="image/Channel1.png" alt="">
+                        <p class="center-block text-center channel-p">通道3</p>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-xs-2">
+                        <img class="img-responsive center-block light-img" src="image/Channel1.png" alt="">
+                        <p class="center-block text-center channel-p">通道4</p>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-xs-2">
+                        <img class="img-responsive center-block light-img" src="image/Channel1.png" alt="">
+                        <p class="center-block text-center channel-p">通道5</p>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-xs-2">
+                        <img class="img-responsive center-block light-img" src="image/Channel1.png" alt="">
+                        <p class="center-block text-center channel-p">通道6</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cardDiv">
+                <p class="center-block text-center card-p">主动均衡模块</p>
+                <div class="row card-line1">
+                    <div class="col-lg-2 col-md-2 col-xs-2">
+                        <span></span>
+                        <div class="mui-switch mui-switch-mini mui-active mui-disabled">
+                            <div class="mui-switch-handle"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-xs-5">
+                        <div class="card-battery">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-xs-6 arrow-img-div">
+                                    <img class="img-responsive arrow-img1 arrow-green" src="image/jiantou.png" alt="">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-xs-6">
+                                    <img class="img-responsive battery-img" src="image/dianchi2.png" alt="">
+                                </div>
+                            </div>
+                            <p class="text-center center-block card-sub-p">充电均衡</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-xs-5">
+                        <div class="card-battery">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-xs-6 arrow-img-div">
+                                    <img class="img-responsive arrow-img2 arrow-green" src="image/hjiantou.png" alt="">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-xs-6">
+                                    <img class="img-responsive battery-img" src="image/dianchi2.png" alt="">
+                                </div>
+                            </div>
+                            <p class="text-center center-block card-sub-p">放电均衡</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row card-line2">
+                    <div class="col-lg-2 col-md-2 col-xs-2">
+                        <img class="img-responsive center-block light-img" src="image/Channel1.png" alt="">
+                        <p class="center-block text-center channel-p">通道1</p>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-xs-2">
+                        <img class="img-responsive center-block light-img" src="image/Channel1.png" alt="">
+                        <p class="center-block text-center channel-p">通道2</p>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-xs-2">
+                        <img class="img-responsive center-block light-img" src="image/Channel1.png" alt="">
+                        <p class="center-block text-center channel-p">通道3</p>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-xs-2">
+                        <img class="img-responsive center-block light-img" src="image/Channel1.png" alt="">
+                        <p class="center-block text-center channel-p">通道4</p>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-xs-2">
+                        <img class="img-responsive center-block light-img" src="image/Channel1.png" alt="">
+                        <p class="center-block text-center channel-p">通道5</p>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-xs-2">
+                        <img class="img-responsive center-block light-img" src="image/Channel1.png" alt="">
+                        <p class="center-block text-center channel-p">通道6</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cardDiv">
+                <p class="center-block text-center card-p">主动均衡模块</p>
+                <div class="row card-line1">
+                    <div class="col-lg-2 col-md-2 col-xs-2">
+                        <span></span>
+                        <div class="mui-switch mui-switch-mini mui-active mui-disabled">
+                            <div class="mui-switch-handle"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-xs-5">
+                        <div class="card-battery">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-xs-6 arrow-img-div">
+                                    <img class="img-responsive arrow-img1 arrow-green" src="image/jiantou.png" alt="">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-xs-6">
+                                    <img class="img-responsive battery-img" src="image/dianchi2.png" alt="">
+                                </div>
+                            </div>
+                            <p class="text-center center-block card-sub-p">充电均衡</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-xs-5">
+                        <div class="card-battery">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-xs-6 arrow-img-div">
+                                    <img class="img-responsive arrow-img2 arrow-green" src="image/hjiantou.png" alt="">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-xs-6">
+                                    <img class="img-responsive battery-img" src="image/dianchi2.png" alt="">
+                                </div>
+                            </div>
+                            <p class="text-center center-block card-sub-p">放电均衡</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row card-line2">
+                    <div class="col-lg-2 col-md-2 col-xs-2">
+                        <img class="img-responsive center-block light-img" src="image/Channel1.png" alt="">
+                        <p class="center-block text-center channel-p">通道1</p>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-xs-2">
+                        <img class="img-responsive center-block light-img" src="image/Channel1.png" alt="">
+                        <p class="center-block text-center channel-p">通道2</p>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-xs-2">
+                        <img class="img-responsive center-block light-img" src="image/Channel1.png" alt="">
+                        <p class="center-block text-center channel-p">通道3</p>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-xs-2">
+                        <img class="img-responsive center-block light-img" src="image/Channel1.png" alt="">
+                        <p class="center-block text-center channel-p">通道4</p>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-xs-2">
+                        <img class="img-responsive center-block light-img" src="image/Channel1.png" alt="">
+                        <p class="center-block text-center channel-p">通道5</p>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-xs-2">
+                        <img class="img-responsive center-block light-img" src="image/Channel1.png" alt="">
+                        <p class="center-block text-center channel-p">通道6</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="directBox">
+        <p>单体:<span></span>&nbsp;&nbsp;&nbsp;&nbsp;温度:<span></span></p>
+        <p>电压:<span></span>&nbsp;&nbsp;&nbsp;&nbsp;电压状态:<span></span></p>
+        <p>SOC:<span></span>&nbsp;&nbsp;&nbsp;&nbsp;SOH:<span></span></p>
+        <!--<div style="width: 100%;height: 10px;border-top: 1px solid #5CACEE;border-left: 1px solid #5CACEE;"></div>-->
+    </div>
+</div>
+<!--bootstrap模态框-->
+<div id="effectModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title center-block text-center" id="gridSystemModalLabel2">历史总电压</h4>
+            </div>
+            <div id="historyDiv" class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12 center-block text-center textinfo">
+
+                        <div id="ColumnDiv3"></div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <!--<button id="sureFinishBtn2" type="button" class="btn btn-primary">确认</button>-->
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!--<script type="text/javascript" color="248,248,255" opacity='0.7' zIndex="-2" count="100" src="js/canvas-nest.js"></script>-->
+<script src="js/jquery-2.0.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/echarts.js"></script>
+<script src="js/respond.js"></script>
+<script>
+    var ColumnDiv1;
+    var ColumnDiv2;
+    var ColumnDiv3;
+    var data = [];
+    var Xdata = [];
+    var SumVoltageData = [];//总电压
+    var SumElectricData = [];//总电压
+    var timer1;
+    var timer2;
+
+    $(function () {
+        setPage();
+        getBatteryData();
+        setTimeout(getBatteryData,100);
+        //10秒定时刷新
+        setInterval(getBatteryData,10000);
+        setInterval(function () {
+            var timer = parseInt($("#timerDiv p").html());
+            if(timer==1) timer=11;
+            $("#timerDiv p").html(timer-1+"s");
+        },1000);
+        //电池组鼠标移入事件
+        $("#formBody td").hover(function(e){
+            var xx = e.originalEvent.x || e.originalEvent.layerX || 0;
+            var yy = e.originalEvent.y || e.originalEvent.layerY || 0;
+            $(this).css("background","#00CD00");
+            $(this).css("opacity","0.8");
+            $(this).parents().find("div.directBox").show();
+            $("div.directBox").css({ left: xx+25, top: yy-90 });
+
+            $("div.directBox").find('p').eq(0).find('span').eq(0).html($(this).attr("name"));
+            $("div.directBox").find('p').eq(1).find('span').eq(0).html($(this).attr("Voltage")+"V");
+            if($(this).attr("VoltageStatus")==0){
+                $("div.directBox").find('p').eq(1).find('span').eq(1).html("正常");
+            }else {
+                $("div.directBox").find('p').eq(1).find('span').eq(1).html("异常");
+                $(this).css("background","#FF0000");
+            }
+            if($(this).attr("Temperature")==undefined){
+                $("div.directBox").find('p').eq(0).find('span').eq(1).html("");
+            }else{
+                $("div.directBox").find('p').eq(0).find('span').eq(1).html($(this).attr("Temperature")+"℃");
+            }
+            if($(this).attr("SOC")==undefined){
+                $("div.directBox").find('p').eq(2).find('span').eq(0).html("");
+            }else{
+                $("div.directBox").find('p').eq(2).find('span').eq(0).html($(this).attr("SOC"));
+            }
+            if($(this).attr("SOH")==undefined){
+                $("div.directBox").find('p').eq(2).find('span').eq(1).html("");
+            }else{
+                $("div.directBox").find('p').eq(2).find('span').eq(1).html($(this).attr("SOH"));
+            }
+            if($(this).attr("HarnessStatus")==0 || $(this).attr("HarnessStatus")=="0"){
+                $(this).find('img').eq(0).attr("src","image/line1.png");
+            }else if($(this).attr("HarnessStatus")==1 || $(this).attr("HarnessStatus")=="1"){
+                $(this).find('img').eq(0).attr("src","image/line2.png");
+            }
+        },function () {
+            $(this).css("background","#00CD00");
+            $(this).css("opacity","0");
+            $(this).parents().find("div.directBox").hide();
+        });
+        $('.light-img').hover(function () {
+            $(this).parent().find('.channel-p').css('display','block');
+        },function () {
+            $(this).parent().find('.channel-p').css('display','none');
+        });
+        //电池组点击事件
+        $("#formBody td").click(function () {
+            $(this).parents().find("div.directBox").hide();
+            $('#effectModal').on('shown.bs.modal', function (e) {
+                // 关键代码，如没将modal设置为 block，则$modala_dialog.height() 为零
+                $(this).css('display', 'block');
+                var modalHeight=$(window).height() / 2 - $('#effectModal .modal-dialog').height() / 2;
+                $(this).find('.modal-dialog').css({
+                    'margin-top': modalHeight
+                });
+                $("#historyDiv").css("height",$(window).height()*0.4);
+                $(this).find('.modal-body').css("max-height",($(window).height() / 2)*0.8);
+                var str = '[{"name":"","value":"5.6"},{"name":"","value":"6.6"},{"name":"","value":"7.6"},{"name":"","value":"8.6"},{"name":"","value":"6.1"},{"name":"","value":"9.6"},{"name":"","value":"5.6"}]';
+                var historyData = eval(str);
+                showHistoryVoltageData(historyData);
+
+            }).modal({
+                keyboard:true//当按下esc键时，modal框消失
+            });
+        });
+    });
+
+    $(window).resize(function() {
+        setPage();
+    });
+
+    function setPage(){
+        $("body").css("width",$(window).width()+"px");
+        $("body").css("height",$(window).height()+"px");
+        $("#headerDiv").css("height",$(window).height()/4+"px");
+        $(".itemDiv").css("height",$("#headerDiv").height()*0.9+"px");
+        $("#formBody tr").css("height",$("#face1").height()/11+"px");
+        var batteryWidth = ($("#headerDiv").width()-$("#battery_img").width())/2;
+        $("#batteryContainer").css("margin-left",batteryWidth-50+"px");
+        var batteryHeight = ($(window).height()-$("#headerDiv").height()-$("#battery_img").height())/2;
+        $("#batteryContainer").css("margin-top",batteryHeight+"px");
+        $(".cardDiv").css("height",($(window).height()/4)-8+"px");
+        $(".card-line1").css("width","100%");
+        $(".card-line1").css("height",($(".cardDiv").height()-20)*0.6+"px");
+        $(".card-line2").css("width","100%");
+        $(".card-line2").css("height",($(".cardDiv").height()-20)*0.4+"px");
+        $(".card-battery").css("height",($(".card-line1").height())-10+"px");
+        $(".card-battery").css("margin-top","5px");
+        $(".card-battery").css("padding","5px");
+        $(".arrow-green").css("margin-top",($(".card-battery").height()-12-$(".arrow-green").height())/2+"px");
+        $(".battery-img").css("margin-top",($(".card-battery").height()-12-$(".battery-img").height())/2+"px");
+        $(".mui-switch").css("margin-top",($(".card-battery").height()-$(".mui-switch").height())/2+"px");
+        $("#timerDiv").css("top",$("#headerDiv").height()+"px");
+        $("#historyDiv").css("height",$(window).height()*0.4);
+    }
+    
+    function getBatteryData() {
+        var jsonData={"IsSuccess":true,"Message":"","ErrorPairs":null,"CustomData":{"detail":[{"key":"TotalCurrent","text":"总电流","unit":"","value":"160","category":"WorkParam"},{"key":"VoltageStatus1","text":"1号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus2","text":"2号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus3","text":"3号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"Voltage1","text":"1号单体电压","unit":"V","value":"0.0010","category":"WorkParam"},{"key":"Voltage2","text":"2号单体电压","unit":"V","value":"562","category":"WorkParam"},{"key":"Voltage3","text":"3号单体电压","unit":"V","value":"0.0030","category":"WorkParam"},{"key":"VoltageStatus4","text":"4号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus5","text":"5号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus6","text":"6号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"Voltage4","text":"4号单体电压","unit":"V","value":"0.0010","category":"WorkParam"},{"key":"Voltage5","text":"5号单体电压","unit":"V","value":"0.0020","category":"WorkParam"},{"key":"Voltage6","text":"6号单体电压","unit":"V","value":"0.0030","category":"WorkParam"},{"key":"VoltageStatus7","text":"7号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus8","text":"8号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus9","text":"9号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"Voltage7","text":"7号单体电压","unit":"V","value":"0.0010","category":"WorkParam"},{"key":"Voltage8","text":"8号单体电压","unit":"V","value":"0.0020","category":"WorkParam"},{"key":"Voltage9","text":"9号单体电压","unit":"V","value":"0.0030","category":"WorkParam"},{"key":"VoltageStatus10","text":"10号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus11","text":"11号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus12","text":"12号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"Voltage10","text":"10号单体电压","unit":"V","value":"0.0010","category":"WorkParam"},{"key":"Voltage11","text":"11号单体电压","unit":"V","value":"0.0020","category":"WorkParam"},{"key":"Voltage12","text":"12号单体电压","unit":"V","value":"0.0030","category":"WorkParam"},{"key":"VoltageStatus13","text":"13号单体电压状态","unit":"","value":"1","category":"WorkParam"},{"key":"VoltageStatus14","text":"14号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus15","text":"15号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"Voltage13","text":"13号单体电压","unit":"V","value":"0.0010","category":"WorkParam"},{"key":"Voltage14","text":"14号单体电压","unit":"V","value":"0.0020","category":"WorkParam"},{"key":"Voltage15","text":"15号单体电压","unit":"V","value":"0.0030","category":"WorkParam"},{"key":"VoltageStatus16","text":"16号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus17","text":"17号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus18","text":"18号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"Voltage16","text":"16号单体电压","unit":"V","value":"0.0010","category":"WorkParam"},{"key":"Voltage17","text":"17号单体电压","unit":"V","value":"0.0020","category":"WorkParam"},{"key":"Voltage18","text":"18号单体电压","unit":"V","value":"0.0030","category":"WorkParam"},{"key":"VoltageStatus19","text":"19号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus20","text":"20号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus21","text":"21号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"Voltage19","text":"19号单体电压","unit":"V","value":"0.0010","category":"WorkParam"},{"key":"Voltage20","text":"20号单体电压","unit":"V","value":"0.0020","category":"WorkParam"},{"key":"Voltage21","text":"21号单体电压","unit":"V","value":"0.0030","category":"WorkParam"},{"key":"VoltageStatus22","text":"22号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus23","text":"23号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus24","text":"24号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"Voltage22","text":"22号单体电压","unit":"V","value":"0.0010","category":"WorkParam"},{"key":"Voltage23","text":"23号单体电压","unit":"V","value":"0.0020","category":"WorkParam"},{"key":"Voltage24","text":"24号单体电压","unit":"V","value":"0.0030","category":"WorkParam"},{"key":"VoltageStatus25","text":"25号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus26","text":"26号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus27","text":"27号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"Voltage25","text":"25号单体电压","unit":"V","value":"0.0010","category":"WorkParam"},{"key":"Voltage26","text":"26号单体电压","unit":"V","value":"0.0020","category":"WorkParam"},{"key":"Voltage27","text":"27号单体电压","unit":"V","value":"0.0030","category":"WorkParam"},{"key":"VoltageStatus28","text":"28号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus29","text":"29号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus30","text":"30号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"Voltage28","text":"28号单体电压","unit":"V","value":"0.0010","category":"WorkParam"},{"key":"Voltage29","text":"29号单体电压","unit":"V","value":"0.0020","category":"WorkParam"},{"key":"Voltage30","text":"30号单体电压","unit":"V","value":"0.0030","category":"WorkParam"},{"key":"VoltageStatus31","text":"31号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus32","text":"32号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus33","text":"33号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"Voltage31","text":"31号单体电压","unit":"V","value":"0.0010","category":"WorkParam"},{"key":"Voltage32","text":"32号单体电压","unit":"V","value":"0.0020","category":"WorkParam"},{"key":"Voltage33","text":"33号单体电压","unit":"V","value":"0.0030","category":"WorkParam"},{"key":"VoltageStatus34","text":"34号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus35","text":"35号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus36","text":"36号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"Voltage34","text":"34号单体电压","unit":"V","value":"0.0010","category":"WorkParam"},{"key":"Voltage35","text":"35号单体电压","unit":"V","value":"0.0020","category":"WorkParam"},{"key":"Voltage36","text":"36号单体电压","unit":"V","value":"0.0030","category":"WorkParam"},{"key":"VoltageStatus37","text":"37号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus38","text":"38号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus39","text":"39号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"Voltage37","text":"37号单体电压","unit":"V","value":"0.0010","category":"WorkParam"},{"key":"Voltage38","text":"38号单体电压","unit":"V","value":"0.0020","category":"WorkParam"},{"key":"Voltage39","text":"39号单体电压","unit":"V","value":"0.0030","category":"WorkParam"},{"key":"VoltageStatus40","text":"40号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus41","text":"41号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus42","text":"42号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"Voltage40","text":"40号单体电压","unit":"V","value":"0.0010","category":"WorkParam"},{"key":"Voltage41","text":"41号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"Voltage42","text":"42号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"VoltageStatus43","text":"43号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus44","text":"44号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus45","text":"45号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"Voltage43","text":"43号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"Voltage44","text":"44号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"Voltage45","text":"45号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"VoltageStatus46","text":"46号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus47","text":"47号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus48","text":"48号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"Voltage46","text":"46号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"Voltage47","text":"47号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"Voltage48","text":"48号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"VoltageStatus49","text":"49号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus50","text":"50号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus51","text":"51号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"Voltage49","text":"49号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"Voltage50","text":"50号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"Voltage51","text":"51号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"VoltageStatus52","text":"52号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus53","text":"53号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus54","text":"54号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"Voltage52","text":"52号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"Voltage53","text":"53号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"Voltage54","text":"54号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"VoltageStatus55","text":"55号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus56","text":"56号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus57","text":"57号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"Voltage55","text":"55号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"Voltage56","text":"56号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"Voltage57","text":"57号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"VoltageStatus58","text":"58号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus59","text":"59号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus60","text":"60号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"Voltage58","text":"58号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"Voltage59","text":"59号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"Voltage60","text":"60号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"VoltageStatus61","text":"61号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus62","text":"62号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus63","text":"63号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"Voltage61","text":"61号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"Voltage62","text":"62号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"Voltage63","text":"63号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"VoltageStatus64","text":"64号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus65","text":"65号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"VoltageStatus66","text":"66号单体电压状态","unit":"","value":"0","category":"WorkParam"},{"key":"Voltage64","text":"64号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"Voltage65","text":"65号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"Voltage66","text":"66号单体电压","unit":"V","value":"","category":"WorkParam"},{"key":"TemperatureStatus1","text":"1号采样点温度状态","unit":"","value":"0","category":"WorkParam"},{"key":"TemperatureStatus2","text":"2号采样点温度状态","unit":"","value":"0","category":"WorkParam"},{"key":"TemperatureStatus3","text":"3号采样点温度状态","unit":"","value":"0","category":"WorkParam"},{"key":"TemperatureStatus4","text":"4号采样点温度状态","unit":"","value":"0","category":"WorkParam"},{"key":"TemperatureStatus5","text":"5号采样点温度状态","unit":"","value":"0","category":"WorkParam"},{"key":"TemperatureStatus6","text":"6号采样点温度状态","unit":"","value":"0","category":"WorkParam"},{"key":"Temperature1","text":"1号采样点温度","unit":"℃","value":"-39","category":"WorkParam"},{"key":"Temperature2","text":"2号采样点温度","unit":"℃","value":"-40","category":"WorkParam"},{"key":"Temperature3","text":"3号采样点温度","unit":"℃","value":"-38","category":"WorkParam"},{"key":"Temperature4","text":"4号采样点温度","unit":"℃","value":"-40","category":"WorkParam"},{"key":"Temperature5","text":"5号采样点温度","unit":"℃","value":"-37","category":"WorkParam"},{"key":"Temperature6","text":"6号采样点温度","unit":"℃","value":"-40","category":"WorkParam"},{"key":"TemperatureStatus7","text":"7号采样点温度状态","unit":"","value":"0","category":"WorkParam"},{"key":"TemperatureStatus8","text":"8号采样点温度状态","unit":"","value":"0","category":"WorkParam"},{"key":"TemperatureStatus9","text":"9号采样点温度状态","unit":"","value":"0","category":"WorkParam"},{"key":"TemperatureStatus10","text":"10号采样点温度状态","unit":"","value":"0","category":"WorkParam"},{"key":"TemperatureStatus11","text":"11号采样点温度状态","unit":"","value":"0","category":"WorkParam"},{"key":"TemperatureStatus12","text":"12号采样点温度状态","unit":"","value":"0","category":"WorkParam"},{"key":"Temperature7","text":"7号采样点温度","unit":"℃","value":"-39","category":"WorkParam"},{"key":"Temperature8","text":"8号采样点温度","unit":"℃","value":"-40","category":"WorkParam"},{"key":"Temperature9","text":"9号采样点温度","unit":"℃","value":"-38","category":"WorkParam"},{"key":"Temperature10","text":"10号采样点温度","unit":"℃","value":"-40","category":"WorkParam"},{"key":"Temperature11","text":"11号采样点温度","unit":"℃","value":"-37","category":"WorkParam"},{"key":"Temperature12","text":"12号采样点温度","unit":"℃","value":"-40","category":"WorkParam"},{"key":"TemperatureStatus13","text":"13号采样点温度状态","unit":"","value":"0","category":"WorkParam"},{"key":"TemperatureStatus14","text":"14号采样点温度状态","unit":"","value":"0","category":"WorkParam"},{"key":"TemperatureStatus15","text":"15号采样点温度状态","unit":"","value":"0","category":"WorkParam"},{"key":"TemperatureStatus16","text":"16号采样点温度状态","unit":"","value":"0","category":"WorkParam"},{"key":"TemperatureStatus17","text":"17号采样点温度状态","unit":"","value":"0","category":"WorkParam"},{"key":"TemperatureStatus18","text":"18号采样点温度状态","unit":"","value":"0","category":"WorkParam"},{"key":"Temperature13","text":"13号采样点温度","unit":"℃","value":"-39","category":"WorkParam"},{"key":"Temperature14","text":"14号采样点温度","unit":"℃","value":"-40","category":"WorkParam"},{"key":"Temperature15","text":"15号采样点温度","unit":"℃","value":"-38","category":"WorkParam"},{"key":"Temperature16","text":"16号采样点温度","unit":"℃","value":"-40","category":"WorkParam"},{"key":"Temperature17","text":"17号采样点温度","unit":"℃","value":"-37","category":"WorkParam"},{"key":"Temperature18","text":"18号采样点温度","unit":"℃","value":"-40","category":"WorkParam"},{"key":"TemperatureStatus19","text":"19号采样点温度状态","unit":"","value":"0","category":"WorkParam"},{"key":"TemperatureStatus20","text":"20号采样点温度状态","unit":"","value":"0","category":"WorkParam"},{"key":"TemperatureStatus21","text":"21号采样点温度状态","unit":"","value":"0","category":"WorkParam"},{"key":"TemperatureStatus22","text":"22号采样点温度状态","unit":"","value":"0","category":"WorkParam"},{"key":"TemperatureStatus23","text":"23号采样点温度状态","unit":"","value":"0","category":"WorkParam"},{"key":"TemperatureStatus24","text":"24号采样点温度状态","unit":"","value":"0","category":"WorkParam"},{"key":"Temperature19","text":"19号采样点温度","unit":"℃","value":"-39","category":"WorkParam"},{"key":"Temperature20","text":"20号采样点温度","unit":"℃","value":"-40","category":"WorkParam"},{"key":"Temperature21","text":"21号采样点温度","unit":"℃","value":"-38","category":"WorkParam"},{"key":"Temperature22","text":"22号采样点温度","unit":"℃","value":"-40","category":"WorkParam"},{"key":"Temperature23","text":"23号采样点温度","unit":"℃","value":"-37","category":"WorkParam"},{"key":"Temperature24","text":"24号采样点温度","unit":"℃","value":"-40","category":"WorkParam"},{"key":"SOC1","text":"1号单体SOC","unit":"","value":"","category":"WorkParam"},{"key":"SOC2","text":"2号单体SOC","unit":"","value":"","category":"WorkParam"},{"key":"SOC3","text":"3号单体SOC","unit":"","value":"","category":"WorkParam"},{"key":"SOC4","text":"4号单体SOC","unit":"","value":"","category":"WorkParam"},{"key":"SOC5","text":"5号单体SOC","unit":"","value":"","category":"WorkParam"},{"key":"SOC6","text":"6号单体SOC","unit":"","value":"","category":"WorkParam"},{"key":"SOC7","text":"7号单体SOC","unit":"","value":"","category":"WorkParam"},{"key":"SOC8","text":"8号单体SOC","unit":"","value":"26%","category":"WorkParam"},{"key":"SOC9","text":"9号单体SOC","unit":"","value":"","category":"WorkParam"},{"key":"SOH1","text":"1号采样点SOH","unit":"","value":"28%","category":"WorkParam"},{"key":"SOH2","text":"2号采样点SOH","unit":"","value":"","category":"WorkParam"},{"key":"SOH3","text":"3号采样点SOH","unit":"","value":"","category":"WorkParam"},{"key":"SOH4","text":"4号采样点SOH","unit":"","value":"","category":"WorkParam"},{"key":"SOH5","text":"5号采样点SOH","unit":"","value":"","category":"WorkParam"},{"key":"SOH6","text":"6号采样点SOH","unit":"","value":"18%","category":"WorkParam"},{"key":"EquilibriumState","text":"均衡状态","unit":"","value":"","category":null},{"key":"ChannelNumber1","text":"模块1正在均衡的通道号","unit":"","value":"0","category":null},{"key":"ModuleStatus1","text":"主动均衡模块1状态","unit":"","value":"2","category":null},{"key":"ChannelNumber2","text":"模块2正在均衡的通道号","unit":"","value":"0","category":null},{"key":"ModuleStatus2","text":"主动均衡模块2状态","unit":"","value":"","category":null},{"key":"ChannelNumber3","text":"模块3正在均衡的通道号","unit":"","value":"0","category":null},{"key":"ModuleStatus3","text":"主动均衡模块3状态","unit":"","value":"","category":null},{"key":"ChannelNumber4","text":"模块4正在均衡的通道号","unit":"","value":"0","category":null},{"key":"ModuleStatus4","text":"主动均衡模块4状态","unit":"","value":"","category":null},{"key":"StartBatteryNumber","text":"开始电池节号","unit":"","value":"","category":null},{"key":"BatteryCount","text":"电池节数","unit":"","value":"","category":null},{"key":"HarnessStatus1","text":"1节电池线束状态","unit":"","value":"","category":null},{"key":"HarnessStatus2","text":"2节电池线束状态","unit":"","value":"1","category":null},{"key":"HarnessStatus3","text":"3节电池线束状态","unit":"","value":"","category":null},{"key":"HarnessStatus4","text":"4节电池线束状态","unit":"","value":"","category":null},{"key":"HarnessStatus5","text":"5节电池线束状态","unit":"","value":"","category":null},{"key":"HarnessStatus6","text":"6节电池线束状态","unit":"","value":"","category":null},{"key":"HarnessStatus7","text":"7节电池线束状态","unit":"","value":"","category":null},{"key":"HarnessStatus8","text":"8节电池线束状态","unit":"","value":"","category":null},{"key":"HarnessStatus9","text":"9节电池线束状态","unit":"","value":"","category":null},{"key":"HarnessStatus10","text":"10节电池线束状态","unit":"","value":"","category":null}],"categories":[{"key":"Gps","text":"终端信息"},{"key":"WorkParam","text":"工况信息"}],"timestamp":62798778820000000,"panels":[]}}
+        jsonData = jsonData.CustomData.detail;
+        clearInterval(timer1);
+        clearInterval(timer2);
+        var VoltageData = [];
+        var VoltageStatus = [];
+        var TemperatureData = [];
+        var TemperatureStatusData = [];
+        var sohData = [];
+        var socData = [];
+        var ChannelNumberData = [];//通道状态
+        var ModuleStatusData = [];//主动均衡模块状态
+        var HarnessStatusData = [];//线束状态
+        var sumElectric=0;
+        for(var i=0;i<jsonData.length;i++){
+            if(jsonData[i].unit=="V"){
+                VoltageData.push(jsonData[i]);
+            }
+            if(jsonData[i].unit=="℃"){
+                TemperatureData.push(jsonData[i]);
+            }
+            if(jsonData[i].key.substring(0,13)=="VoltageStatus"){
+                VoltageStatus.push(jsonData[i]);
+            }
+            if(jsonData[i].key.substring(0,17)=="TemperatureStatus"){
+                TemperatureStatusData.push(jsonData[i]);
+            }
+            if(jsonData[i].key.substring(0,3)=="SOC"){
+                socData.push(jsonData[i]);
+            }
+            if(jsonData[i].key.substring(0,3)=="SOH"){
+                sohData.push(jsonData[i]);
+            }
+            if(jsonData[i].key=="TotalCurrent"){
+                sumElectric=jsonData[i].value;
+            }
+            if(jsonData[i].key.substring(0,13)=="ChannelNumber"){
+                ChannelNumberData.push(jsonData[i]);
+            }
+            if(jsonData[i].key.substring(0,12)=="ModuleStatus"){
+                ModuleStatusData.push(jsonData[i]);
+            }
+            if(jsonData[i].key.substring(0,13)=="HarnessStatus"){
+                HarnessStatusData.push(jsonData[i]);
+            }
+        }
+        $("#formBody .task td").css("background","#00CD00");
+        $("#formBody .task td").css("opacity","0");
+        $("#formBody .task td img").attr("src","image/line1.png");
+        console.log(JSON.stringify(VoltageStatus));
+
+        var sumVoltage=0;
+        for(var i=0;i<VoltageData.length;i++){
+            $("#formBody td").eq(i).attr("name",i+1);
+            $("#formBody td").eq(i).attr("Voltage",VoltageData[i].value);
+            if(VoltageData[i].value=="" || VoltageData[i].value==null){
+                VoltageData[i].value=0;
+            }
+            sumVoltage = sumVoltage+parseFloat(VoltageData[i].value);
+        }
+        for(var i=0;i<VoltageStatus.length;i++){
+            $("#formBody td").eq(i).attr("VoltageStatus",VoltageStatus[i].value);
+        }
+        for(var i=0;i<TemperatureData.length;i++){
+            $("#formBody td").eq(i).attr("Temperature",TemperatureData[i].value);
+        }
+        for(var i=0;i<socData.length;i++){
+            $("#formBody td").eq(i).attr("SOC",socData[i].value);
+        }
+        for(var i=0;i<sohData.length;i++){
+            $("#formBody td").eq(i).attr("SOH",sohData[i].value);
+        }
+        for(var i=0;i<HarnessStatusData.length;i++){
+            $("#formBody td").eq(i).attr("HarnessStatus",HarnessStatusData[i].value);
+        }
+        var VoltageObj = new Object();
+        VoltageObj.name="";
+        VoltageObj.value=sumVoltage.toFixed(2);
+        if(SumVoltageData.length==10){
+            SumVoltageData.shift();
+            SumVoltageData.push(VoltageObj);
+        }else {
+            SumVoltageData.push(VoltageObj);
+        }
+
+        var ElectricObj = new Object();
+        ElectricObj.name="";
+        ElectricObj.value=sumElectric;
+        if(SumElectricData.length==10){
+            SumElectricData.shift();
+            SumElectricData.push(ElectricObj);
+        }else {
+            SumElectricData.push(ElectricObj);
+        }
+
+        if(Xdata.length==10){
+            Xdata.shift();
+            Xdata.push(Format(new Date(),"HH:mm:ss"));
+        }else{
+            Xdata.push(Format(new Date(),"HH:mm:ss"));
+        }
+
+        showElectricData(SumElectricData);//电流
+        showVoltageData(SumVoltageData);//电压
+
+        //右侧通道状况
+        for(var i=0;i<ChannelNumberData.length;i++){
+            var lightNum = parseInt(ChannelNumberData[i].value);
+            if(lightNum != 0){
+                $(".cardDiv").eq(i).find('.light-img').eq(lightNum-1).attr('src','image/Channel2.png');
+            }else{
+
+            }
+        }
+        //右侧均衡状态
+        for(var i=0;i<ModuleStatusData.length;i++){
+            if(ModuleStatusData[i].value=="" || ModuleStatusData[i].value=="0" ||ModuleStatusData[i].value==0){
+                $('.cardDiv').eq(i).find('.mui-switch').eq(0).removeClass('mui-active');
+                $('.cardDiv').eq(i).find('.card-battery').eq(0).css('background','url(image/Backgroundblue.png)');
+                $('.cardDiv').eq(i).find('.card-battery').eq(1).css('background','url(image/Backgroundblue.png)');
+                $('.cardDiv').eq(i).find('.arrow-green').eq(0).removeClass('arrow-img1');
+                $('.cardDiv').eq(i).find('.arrow-green').eq(1).removeClass('arrow-img2');
+            }else if(ModuleStatusData[i].value==1 ||ModuleStatusData[i].value=="1"){
+                $('.cardDiv').eq(i).find('.mui-switch').eq(0).addClass('mui-active');
+                $('.cardDiv').eq(i).find('.card-battery').eq(0).css('background','url(image/Backgroundgreen.png)');
+                $('.cardDiv').eq(i).find('.card-battery').eq(1).css('background','url(image/Backgroundblue.png)');
+                $('.cardDiv').eq(i).find('.arrow-green').eq(0).addClass('arrow-img1');
+                $('.cardDiv').eq(i).find('.arrow-green').eq(1).removeClass('arrow-img2');
+            }else if(ModuleStatusData[i].value==2 ||ModuleStatusData[i].value=="2"){
+                $('.cardDiv').eq(i).find('.mui-switch').eq(0).addClass('mui-active');
+                $('.cardDiv').eq(i).find('.card-battery').eq(1).css('background','url(image/Backgroundgreen.png)');
+                $('.cardDiv').eq(i).find('.card-battery').eq(0).css('background','url(image/Backgroundblue.png)');
+                $('.cardDiv').eq(i).find('.arrow-green').eq(0).removeClass('arrow-img1');
+                $('.cardDiv').eq(i).find('.arrow-green').eq(1).addClass('arrow-img2');
+            }
+        }
+
+        //电压异常闪烁
+        var errorData=[];
+        for(var i=0;i<VoltageStatus.length;i++){
+            if(VoltageStatus[i].value != "0"){
+                errorData.push(VoltageStatus[i]);
+            }
+        }
+        //线束异常闪烁
+        var lineerrorData=[];
+        for(var i=0;i<HarnessStatusData.length;i++){
+            if(HarnessStatusData[i].value == "1" || HarnessStatusData[i].value == 1){
+                lineerrorData.push(HarnessStatusData[i]);
+            }
+        }
+        timer1 = setInterval(function () {
+            for(var i=0;i<errorData.length;i++){
+                var str = errorData[i].text;
+                var index = str.indexOf("号");
+                var num = parseInt(errorData[i].text.substring(0,index));
+                $("#formBody td").eq(num-1).css("background","#ff0000");
+                $("#formBody td").eq(num-1).css("opacity","0.8");
+            }
+            for(var i=0;i<lineerrorData.length;i++){
+                var str = lineerrorData[i].text;
+                var index = str.indexOf("节");
+                var num = parseInt(lineerrorData[i].text.substring(0,index));
+                $("#formBody td img").eq(num-1).attr("src","image/line2.png");
+                $("#formBody td").eq(num-1).css("opacity","0.8");
+            }
+
+        },1000);
+
+        timer2 = setInterval(function () {
+            for(var i=0;i<errorData.length;i++){
+                var str = errorData[i].text;
+                var index = str.indexOf("号");
+                var num = parseInt(errorData[i].text.substring(0,index));
+                $("#formBody td").eq(num-1).css("opacity","0");
+            }
+            for(var i=0;i<lineerrorData.length;i++){
+                var str = lineerrorData[i].text;
+                var index = str.indexOf("节");
+                var num = parseInt(lineerrorData[i].text.substring(0,index));
+                $("#formBody td").eq(num-1).css("opacity","0");
+            }
+        },2000);
+
+    }
+    
+    //显示电流信息
+    function showElectricData(SumElectricData) {
+        $('#ColumnDiv1').css("width",$(".itemDiv").width()+"px");
+        $('#ColumnDiv1').css("height",$('.itemDiv').height()+50+"px");
+        $('#ColumnDiv1').css("top",-($('#ColumnDiv1').height()-$('.itemDiv').height())/2+"px");
+        ColumnDiv1 = echarts.init(document.getElementById('ColumnDiv1'));
+        console.log(JSON.stringify(data));
+         var maxValue = parseInt(arrayMax(SumElectricData));
+        option = {
+            tooltip: {
+                trigger: 'value',
+                formatter: '总电流:'+' {c}<br/>'+'时间:'+'{b}'
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: [0, 5],
+                data: Xdata,
+                axisLabel:{
+                    interval:0,
+                    rotate:-30
+                },
+                grid:{
+                    show:true
+                },
+                axisLine:{
+                    lineStyle:{
+                        color:"#ffffff"
+                    }
+                },
+                splitLine:{
+                    show:true,
+                    lineStyle:{
+                        color:"#cccccc",
+                        opacity:0.2
+                    }
+                }
+            },
+            yAxis: {
+                type: 'value',
+                boundaryGap: [0, 1],
+                max: maxValue,
+                min: 0,
+                axisLine:{
+                    lineStyle:{
+                        color:"#ffffff"
+                    }
+                },
+                splitLine:{
+                    show:true,
+                    lineStyle:{
+                        color:"#cccccc",
+                        opacity:0.2
+                    }
+                }
+            },
+            series: [{
+                type: 'line',
+                showSymbol: false,
+                hoverAnimation: false,
+                itemStyle:{
+                    normal:{
+                        lineStyle:{
+                            color:"#59c4e8"
+                        }
+                    }
+                },
+                data: SumElectricData
+            }],
+            animation:false
+        };
+        ColumnDiv1.setOption(option);
+    }
+
+    //显示电压信息
+    function showVoltageData(SumVoltageData) {
+        $('#ColumnDiv2').css("width",$(".itemDiv").width()+"px");
+        $('#ColumnDiv2').css("height",$('.itemDiv').height()+50+"px");
+        $('#ColumnDiv2').css("top",-($('#ColumnDiv2').height()-$('.itemDiv').height())/2+"px");
+        ColumnDiv2 = echarts.init(document.getElementById('ColumnDiv2'));
+        var maxValue = parseInt(arrayMax(SumVoltageData));
+        option2 = {
+            tooltip: {
+                trigger: 'value',
+                formatter: '总电压:'+' {c}<br/>'+'时间:'+'{b}'
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: [0, 5],
+                data: Xdata,
+                axisLabel:{
+                    interval:0,
+                    rotate:-30
+                },
+                grid:{
+                    show:true
+                },
+                axisLine:{
+                    lineStyle:{
+                        color:"#ffffff"
+                    }
+                },
+                splitLine:{
+                    show:true,
+                    lineStyle:{
+                        color:"#cccccc",
+                        opacity:0.2
+                    }
+                }
+            },
+            yAxis: {
+                type: 'value',
+                boundaryGap: [0, 1],
+                max: maxValue,
+                min: 0,
+//                axisLabel:false,
+                axisLine:{
+                    lineStyle:{
+                        color:"#ffffff"
+                    }
+                },
+                splitLine:{
+                    show:true,
+                    lineStyle:{
+                        color:"#cccccc",
+                        opacity:0.2
+                    }
+                }
+            },
+            series: [{
+                type: 'line',
+                showSymbol: false,
+                hoverAnimation: false,
+                itemStyle:{
+                    normal:{
+                        lineStyle:{
+                            color:"#59c4e8"
+                        }
+                    }
+                },
+                data: SumVoltageData
+            }],
+            animation:false
+        };
+        ColumnDiv2.setOption(option2);
+    }
+
+    //显示历史总电压信息
+    function showHistoryVoltageData(historyVoltageData) {
+        var historyXdata=[];
+        var date = new Date();
+        for(var i=0;i<7;i++){
+            var n = new Date(date.getTime() - i*1000 * 60*60*24);
+            var formatDate=Format(n,"yyyy-MM-dd");
+            historyXdata.push(formatDate);
+        }
+        historyXdata = historyXdata.reverse();
+        $('#ColumnDiv3').css("width","100%");
+        $('#ColumnDiv3').css("height",$("#historyDiv").height()+"px");
+        ColumnDiv3 = echarts.init(document.getElementById('ColumnDiv3'));
+        var maxValue = parseInt(arrayMax(SumVoltageData));
+        option3 = {
+            title:{
+                textStyle:{
+                    color:'#333',
+                }
+            },
+            grid:{
+                top:30
+            },
+            tooltip: {
+                trigger: 'value',
+                formatter: '总电压(V):'+' {c}<br/>'+'时间:'+'{b}'
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: [0, 5],
+                data: historyXdata,
+                axisLabel:{
+                    interval:0,
+                    rotate:-30
+                },
+                grid:{
+                    show:true
+                },
+                axisLine:{
+                    lineStyle:{
+                        color:"#333333"
+                    }
+                },
+                splitLine:{
+                    show:true,
+                    lineStyle:{
+                        color:"#aaaaaa",
+                        opacity:0.2
+                    }
+                }
+            },
+            yAxis: {
+                show:true,
+                name: '电压(V)',
+                nameTextStyle:{
+                    color:'#333333',
+                    fontSize:11
+                },
+                position: 'left',
+                splitNumber: 5,
+                axisLabel: {
+                    formatter: '{value}',
+                    textStyle: {
+                        color: '#333333'
+                    }
+                },
+                type: 'value',
+                boundaryGap: [0, 1],
+                max: 12,
+                min: 3,
+//                axisLabel:false,
+                axisLine:{
+                    lineStyle:{
+                        color:"#333333"
+                    }
+                },
+                splitLine:{
+                    show:true,
+                    lineStyle:{
+                        color:"#aaaaaa",
+                        opacity:0.2
+                    }
+                }
+            },
+            series: [{
+                type: 'line',
+                showSymbol: false,
+                hoverAnimation: false,
+                itemStyle:{
+                    normal:{
+                        lineStyle:{
+                            color:"#59c4e8"
+                        }
+                    }
+                },
+                data: historyVoltageData
+            }],
+            animation:false
+        };
+        ColumnDiv3.setOption(option3);
+    }
+
+
+    // 在数组中查找最大值
+    function arrayMax(arrs) {
+        var max = arrs[0].value;
+        for(var i = 1,ilen = arrs.length; i < ilen; i++) {
+            if(arrs[i].value > max) {
+                max = arrs[i].value;
+            }
+        }
+        return max*1.2;
+    }
+
+    //日期格式化  调用示例  var formatDate=Format(d,"yyyy-MM-dd HH:mm:ss");
+    function Format(now,mask) {
+        var d = now;
+        var zeroize = function (value, length)
+        {
+            if (!length) length = 2;
+            value = String(value);
+            for (var i = 0, zeros = ''; i < (length - value.length); i++)
+            {
+                zeros += '0';
+            }
+            return zeros + value;
+        };
+
+        return mask.replace(/"[^"]*"|'[^']*'|\b(?:d{1,4}|m{1,4}|yy(?:yy)?|([hHMstT])\1?|[lLZ])\b/g, function ($0)
+        {
+            switch ($0)
+            {
+                case 'd': return d.getDate();
+                case 'dd': return zeroize(d.getDate());
+                case 'ddd': return ['Sun', 'Mon', 'Tue', 'Wed', 'Thr', 'Fri', 'Sat'][d.getDay()];
+                case 'dddd': return ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][d.getDay()];
+                case 'M': return d.getMonth() + 1;
+                case 'MM': return zeroize(d.getMonth() + 1);
+                case 'MMM': return ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][d.getMonth()];
+                case 'MMMM': return ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][d.getMonth()];
+                case 'yy': return String(d.getFullYear()).substr(2);
+                case 'yyyy': return d.getFullYear();
+                case 'h': return d.getHours() % 12 || 12;
+                case 'hh': return zeroize(d.getHours() % 12 || 12);
+                case 'H': return d.getHours();
+                case 'HH': return zeroize(d.getHours());
+                case 'm': return d.getMinutes();
+                case 'mm': return zeroize(d.getMinutes());
+                case 's': return d.getSeconds();
+                case 'ss': return zeroize(d.getSeconds());
+                case 'l': return zeroize(d.getMilliseconds(), 3);
+                case 'L': var m = d.getMilliseconds();
+                    if (m > 99) m = Math.round(m / 10);
+                    return zeroize(m);
+                case 'tt': return d.getHours() < 12 ? 'am' : 'pm';
+                case 'TT': return d.getHours() < 12 ? 'AM' : 'PM';
+                case 'Z': return d.toUTCString().match(/[A-Z]+$/);
+                // Return quoted strings with the surrounding quotes removed
+                default: return $0.substr(1, $0.length - 2);
+            }
+        });
+    };
+
+</script>
+
+</body>
+</html>
